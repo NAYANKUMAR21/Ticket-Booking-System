@@ -37,6 +37,7 @@ const SeatsToBeBooked = async (req, res) => {
 };
 const DetaultSetting = async (req, res) => {
   try {
+    await client.set('latest', JSON.stringify([]));
     const defaultSetting = await SeatModel.updateMany(
       {},
       { isBooked: false },

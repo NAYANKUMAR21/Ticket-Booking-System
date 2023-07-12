@@ -21,7 +21,8 @@ function App() {
         h="100vh"
       >
         {' '}
-        <Seats /> <BookingConsole />
+        <Seats />
+        <BookingConsole />
       </Box>
     </>
   );

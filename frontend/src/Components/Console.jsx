@@ -1,5 +1,8 @@
 import React, { useContext, useState } from 'react';
+import { LuArmchair } from 'react-icons/lu';
 import {
+  InputGroup,
+  InputLeftAddon,
   Box,
   Flex,
   Text,
@@ -36,7 +39,14 @@ const BookingConsole = () => {
   };
 
   return (
-    <Box w={['95%', '80%', '80%', '40%']} m="auto" mt="50px">
+    <Box
+      w={['95%', '80%', '80%', '40%']}
+      m="auto"
+      mt="50px"
+      borderRadius={'5px'}
+      border={'1px solid teal'}
+      p="10px"
+    >
       <Flex>
         <Box
           backgroundColor={'red.400'}
@@ -57,7 +67,13 @@ const BookingConsole = () => {
           Avialable Seats
         </Text>
       </Flex>
-      <Flex>
+      <Flex
+        // border={'1px solid black'}
+        p={'10px'}
+        mt="10px"
+        borderRadius={'5px'}
+        bgColor={'#eaeaea'}
+      >
         <Flex mt="10px" fontSize={'xl'} w="30%">
           Current Seats Booked :
         </Flex>
@@ -68,7 +84,6 @@ const BookingConsole = () => {
                 return (
                   <Box
                     w="50px"
-                    border={'1px solid teal'}
                     borderRadius={'5px'}
                     _hover={{
                       opacity: '0.5',
@@ -91,11 +106,13 @@ const BookingConsole = () => {
               })
             ) : (
               <Text fontSize={'xl'} mt="10px">
-                Seats Are Avilable
+                All Seats Are Avilable
               </Text>
             )
           ) : (
-            <Text fontSize={'xl'}>..Updating</Text>
+            <Text fontSize={'xl'} mt="10px" ml="10px" fontWeight={'bold'}>
+              ..Updating
+            </Text>
           )}
         </Flex>
       </Flex>
@@ -105,16 +122,20 @@ const BookingConsole = () => {
           {' '}
           Ex:3
         </Text>
-        <Flex justifyContent={'space-between'}>
-          <Input
-            w="45%"
-            type="number"
-            variant="flushed"
-            min={1}
-            max={7}
-            placeholder="Enter Number of Seats"
-            onChange={(e) => setNum(Number(e.target.value))}
-          />
+        <Flex justifyContent={'space-between'} mt="10px">
+          <InputGroup>
+            <InputLeftAddon children={<LuArmchair />} />
+            <Input
+              type="number"
+              w="50%"
+              variant="flushed"
+              min={1}
+              max={7}
+              placeholder="Enter Number 1-7 to book Seats"
+              onChange={(e) => setNum(Number(e.target.value))}
+            />
+          </InputGroup>
+
           <Button w="45%" colorScheme="blue" onClick={handleReserve}>
             Reserve Seats
           </Button>
