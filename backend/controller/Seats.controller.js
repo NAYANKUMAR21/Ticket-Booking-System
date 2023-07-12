@@ -1,4 +1,6 @@
+const BookingSeats = require('../Algorithm/booking.Algorithm');
 const SeatModel = require('../model/Seats.model');
+let client = require('../Redis/redis.config');
 const SeatsToBeBooked = async (req, res) => {
   const { num } = req.params;
   let numOfSeats = Number(num);
@@ -9,13 +11,26 @@ const SeatsToBeBooked = async (req, res) => {
     return res.status(404).send({ message: 'Enter Number Below 7' });
   }
   try {
-    const getData = await SeatModel.findOneAndUpdate(
-      { Seat_Number: num },
-      { isBooked: true },
-      { new: true }
-    );
+    let x = await BookingSeats(numOfSeats);
+    // const getSeats = await SeatModel.find();
+    // let matrix = [];
+    // for (let i = 0; i < async.length; i++) {
+    //   let subMatrix = [];
+    //   for (let j = i; j < i + 7; i++) {
+    //     subMatrix.push(getSeats[j]);
+    //   }
+    //   matrix.push(subMatrix);
+    // }
 
-    return res.status(200).send(getData);
+    // const getData = await SeatModel.findOneAndUpdate(
+    //   { Seat_Number: num },
+    //   { isBooked: true },
+    //   { new: true }
+    // );
+    if (x.length !== 0) {
+      return res.status(200).send({ message: 'Seats Booked', bookedSeats: x });
+    }
+    return res.status(404).send('Seats Not found');
   } catch (er) {
     return res.status(404).send({ message: er.message });
   }
@@ -34,8 +49,15 @@ const DetaultSetting = async (req, res) => {
 };
 const GetAllSeats = async (req, res) => {
   try {
+    let x = await client.get('latest');
+    x = JSON.parse(x);
+
     const getAllSeats = await SeatModel.find();
-    return res.status(200).send(getAllSeats);
+    //link - https://stackblitz.com/edit/angular-6l4btw
+    if (x) {
+      return res.status(200).send({ getAllSeats, x });
+    }
+    return res.status(200).send({ getAllSeats });
   } catch (er) {
     return res.status(404).send({ message: er.message });
   }
