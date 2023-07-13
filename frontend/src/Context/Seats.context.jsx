@@ -14,11 +14,13 @@ const SeatsContextProvider = ({ children }) => {
   const getSeats = async () => {
     try {
       SetLoading(true);
+
       const result = await axios.get(`${Backend_URL}/book-seats/get-all-seats`);
 
       let data = result.data.getAllSeats;
       SetBookedSeats(result.data.x ? result.data.x : []);
       SetLoading(false);
+
       return setData(data);
     } catch (er) {
       SetLoading(false);
@@ -41,6 +43,7 @@ const SeatsContextProvider = ({ children }) => {
       let y = await axios.post(`${Backend_URL}/book-seats/${num}`);
       SetBookedSeats(y.data.bookedSeats);
       SetLoading(false);
+
       return getSeats();
     } catch (er) {
       SetLoading(false);

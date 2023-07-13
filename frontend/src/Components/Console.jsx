@@ -18,7 +18,7 @@ import { SeatsContext } from '../Context/Seats.context';
 const BookingConsole = () => {
   const { DefaultSetting, patchNumOfSeats, bookedSeats, isLoading } =
     useContext(SeatsContext);
-  // console.log(DefaultSetting);
+
   const [num, setNum] = useState(0);
   const toast = useToast({
     position: 'top',
@@ -136,7 +136,12 @@ const BookingConsole = () => {
             />
           </InputGroup>
 
-          <Button w="45%" colorScheme="blue" onClick={handleReserve}>
+          <Button
+            isLoading={isLoading ? isLoading : false}
+            w="45%"
+            colorScheme="blue"
+            onClick={handleReserve}
+          >
             Reserve Seats
           </Button>
         </Flex>
