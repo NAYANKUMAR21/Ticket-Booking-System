@@ -28,8 +28,9 @@ This problem involves the reservation of seats in a train coach. The coach has a
 4. [Backend Deployed Link (Cyclic)](https://amber-cheetah-hat.cyclic.app)
 
 
-**Features :**
-		1.  	Seat Availability: The system should display the current availability of seats in the coach, taking into account the layout of rows and the number of seats in each row.
+# **Features :**
+	
+ 1. Seat Availability: The system should display the current availability of seats in the coach, taking into account the layout of rows and the number of seats in each row.
     
 2. Seat Reservation: Users should be able to reserve seats, with a limit of up to 7 seats per person. The system should prioritize booking seats in one row if available.
     
