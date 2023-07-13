@@ -1,70 +1,65 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome to UnStop Seat Reservation System! /  Ticket-Booking-System
 
-## Available Scripts
+This problem involves the reservation of seats in a train coach. The coach has a total of 80 seats, arranged in rows of 7 seats each, except for the last row which has only 3 seats. There is only one coach on this train. Each person is allowed to reserve up to 7 seats at a time. The priority for booking seats is to secure them in one row if available. If seats are not available in one row, the booking should be made in a way that reserves nearby seats. Users can book as many tickets as they want until the coach is full. There is no requirement for creating a login functionality in this application.
 
-In the project directory, you can run:
+# TechStack: 
+# 1. **Frontend**
+ 	a. React.js
+   	b. Context Api
+     	c. Chakra Ui (External CSS)
+# 2.**Backend**
+	a. Node.js
+  	b. Express
+    	c. Mongoose
+      	d. redis
+# 3. **DataBase** 
+       	a. MongoDb
 
-### `npm start`
+  
+# **All Seats Available:**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![enter image description here](https://res.cloudinary.com/dc3akfh6t/image/upload/v1689250632/crhtmzdszmuddmp1grql.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# **Booking Seats At  the very Beginning According to Constraints :**
 
-### `npm test`
+![enter image description here](https://res.cloudinary.com/dc3akfh6t/image/upload/v1689250822/pxyqpso2tqbiyg2uxa3n.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# **Showing Booked Seats [ 24, 25, 26 ] After Majority Seats have been booked:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![enter image description here](http://res.cloudinary.com/dc3akfh6t/image/upload/v1689250600/n9wrjzmvg1oyy9kdnfx1.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+# **Un-Booking The seats Clicking on the Boxes :**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![enter image description here](http://res.cloudinary.com/dc3akfh6t/image/upload/v1689250727/vufxkzqbb9iuue38jcck.png)
+# [Website Link](https://frontend-bice-phi.vercel.app/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. [Backend Github  Link](https://github.com/NAYANKUMAR21/UnStop-Backend)
+2. [Frontend Github  Link](https://github.com/NAYANKUMAR21/Ticket-Booking-System/tree/master/frontend)
+3. [Frontend Deployed Link](https://frontend-bice-phi.vercel.app/)
+4. [Backend Deployed Link (Cyclic)](https://amber-cheetah-hat.cyclic.app)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# **Features :**
+	
+ 1. Seat Availability: The system should display the current availability of seats in the coach, taking into account the layout of rows and the number of seats in each row.
+    
+2. Seat Reservation: Users should be able to reserve seats, with a limit of up to 7 seats per person. The system should prioritize booking seats in one row if available.
+    
+3.  Seat Allocation: If seats are not available in one row, the system should allocate nearby seats to ensure the group or individual can sit together.
+    
+4.  Booking Limit: The system should allow users to book as many tickets as they want until the coach is full. It should display a notification when the coach is fully booked.
+    
+5.  Un-Booking Feature: The system should provide an option for users to cancel or un-book their reserved seats. This would free up the seats for other users.
+    
+6.  User Interface: A user-friendly interface should be implemented to make it easy for users to view seat availability, reserve seats, and un-book seats. The interface should also display relevant information, such as the coach layout and the number of seats remaining.
+    
+7.  Validation and Error Handling: The system should handle various scenarios, such as invalid seat selections, exceeding the booking limit, or attempting to un-book seats that have not been reserved.
+    
+8.  System Efficiency: To optimize the booking process, the system can implement algorithms to efficiently search for available seats, prioritize filling rows, and minimize the number of splits between groups.
 
-## Learn More
+Note: The system should have a database or storage mechanism to store and retrieve reservation data, ensuring the data remains intact even if the application restarts.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
