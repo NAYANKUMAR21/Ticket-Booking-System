@@ -1,23 +1,23 @@
 
 # Welcome to UnStop Seat Reservation System! /  Ticket-Booking-System
 
-This problem involves the reservation of seats in a train coach. The coach has a total of 80 seats, arranged in rows of 7 seats each, except for the last row which has only 3 seats. There is only one coach in this train. Each person is allowed to reserve up to 7 seats at a time. The priority for booking seats is to reserve them in one row if available. If seats are not available in one row, the booking should be done in a way that reserves nearby seats. Users can book as many tickets as they want until the coach is full. There is no requirement for creating a login functionality in this application.
+This problem involves the reservation of seats in a train coach. The coach has a total of 80 seats, arranged in rows of 7 seats each, except for the last row which has only 3 seats. There is only one coach on this train. Each person is allowed to reserve up to 7 seats at a time. The priority for booking seats is to secure them in one row if available. If seats are not available in one row, the booking should be made in a way that reserves nearby seats. Users can book as many tickets as they want until the coach is full. There is no requirement for creating a login functionality in this application.
 
 # TechStack: 
 # 1. **Frontend**
- 		a. React.js
-   		b. Context Api
-     		c. Chakra Ui (External CSS)
+ 	a. React.js
+   	b. Context Api
+     	c. Chakra Ui (External CSS)
 # 2.**Backend**
-		a. Node.js
-  		b. Express
-    		c. Mongoose
-      		d. redis
+	a. Node.js
+  	b. Express
+    	c. Mongoose
+      	d. redis
 # 3. **DataBase** 
-       		a. MongoDb
+       	a. MongoDb
 
   
-#**All Seats Available :**
+#**All Seats Available:**
 
 ![enter image description here](https://res.cloudinary.com/dc3akfh6t/image/upload/v1689250632/crhtmzdszmuddmp1grql.png)
 
