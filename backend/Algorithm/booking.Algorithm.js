@@ -2,55 +2,47 @@ let SeatModel = require('../model/Seats.model');
 let client = require('../Redis/redis.config');
 async function BookingSeats(num) {
   let { matrix, data } = await generate2DMatrix();
-  //   return console.log(matrix,"here");
-
   let firstIndex = -1;
   let SeatsAdded = false;
-  for (let i = 0; i < 12; i++) {
-    //main loop
-
-    // for (let c = 0; c < matrix.length; c++) {
-    //finding index of booked==false
+  for (let i = 0; i < matrix.length; i++) {
     let flag = false;
-    for (let d = 0; d < 7; d++) {
+
+    for (let d = 0; d < matrix[i].length; d++) {
       if (matrix[i][d].isBooked === false) {
         firstIndex = d;
         flag = true;
         break;
       }
     }
-    // if (flag) {
-    //   break;
-    // }
-    // }
 
-    // let x = matrix[i].includes({ isBooked: false });
-    // let firstIndex = matrix[i].indexOf({ isBooked: false });
-    console.log(firstIndex);
     if (firstIndex >= 0) {
       let zeroCount = 0;
-      for (let j = firstIndex; j < 7; j++) {
-        if (matrix[i][j].isBooked === false) {
+      console.log('enterd first Index');
+
+      for (let j = firstIndex; j < matrix[i].length; j++) {
+        firstIndex == 9 ? console.log(matrix[i][j].Seat_Number) : null;
+        firstIndex == 8 ? console.log(matrix[i][j].Seat_Number) : null;
+        if (matrix[i][j] && matrix[i][j].isBooked === false) {
           zeroCount++;
         }
       }
-      console.log(firstIndex, zeroCount, 'here');
+      console.log('Passed for loop');
       let flag = false;
 
       if (num <= zeroCount) {
+        console.log("entered num<zero's");
         let updatedSeats = [];
         let ContentToBeUpdate = [];
         for (let k = firstIndex; k < firstIndex + num; k++) {
-          //   matrix[i][k] = 1;
           matrix[i][k].isBooked = true;
           ContentToBeUpdate.push(matrix[i][k]);
           updatedSeats.push(matrix[i][k]._id);
         }
+
         flag = true;
         if (flag) {
-          console.log(updatedSeats);
-          console.log(ContentToBeUpdate);
           SeatsAdded = true;
+
           for (let l = 0; l < updatedSeats.length; l++) {
             await SeatModel.findByIdAndUpdate(
               { _id: updatedSeats[l] },
@@ -58,14 +50,44 @@ async function BookingSeats(num) {
               { new: true }
             );
           }
+
           await client.set('latest', JSON.stringify(ContentToBeUpdate));
           return ContentToBeUpdate;
         }
       }
-      console.log('here');
+      // console.log('here', i);
+      // console.log('seat Added', SeatsAdded);
+      // console.log('------------------------');
     }
   }
-  if (SeatsAdded) {
+  if (!SeatsAdded) {
+    console.log('No Seat got booked', num);
+    let emptyRow = [];
+    for (let i = 0; i < matrix.length; i++) {
+      for (let j = 0; j < matrix[i].length; j++) {
+        if (matrix[i][j].isBooked === false && emptyRow.length != num) {
+          matrix[i][j].isBooked = true;
+          emptyRow.push(matrix[i][j]);
+        }
+      }
+    }
+    console.log(emptyRow.length);
+    let WereItemsAddedflag = false;
+    if (emptyRow.length !== 0) {
+      for (let l = 0; l < emptyRow.length; l++) {
+        await SeatModel.findByIdAndUpdate(
+          { _id: emptyRow[l]._id },
+          { ...emptyRow[l] },
+          { new: true }
+        );
+      }
+      WereItemsAddedflag = true;
+    }
+    if (WereItemsAddedflag) {
+      await client.set('latest', JSON.stringify(emptyRow));
+      return emptyRow;
+    }
+    return [];
   }
 }
 async function generate2DMatrix() {
@@ -142,8 +164,7 @@ async function generate2DMatrix() {
       row8,
       row9,
       row10,
-      row11,
-      row12,
+      [...row11, ...row12],
     ];
     return { matrix: matrix, data: data };
   } catch (er) {

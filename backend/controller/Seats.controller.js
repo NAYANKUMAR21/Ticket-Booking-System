@@ -11,26 +11,17 @@ const SeatsToBeBooked = async (req, res) => {
     return res.status(404).send({ message: 'Enter Number Below 7' });
   }
   try {
-    let x = await BookingSeats(numOfSeats);
-    // const getSeats = await SeatModel.find();
-    // let matrix = [];
-    // for (let i = 0; i < async.length; i++) {
-    //   let subMatrix = [];
-    //   for (let j = i; j < i + 7; i++) {
-    //     subMatrix.push(getSeats[j]);
-    //   }
-    //   matrix.push(subMatrix);
-    // }
-
-    // const getData = await SeatModel.findOneAndUpdate(
-    //   { Seat_Number: num },
-    //   { isBooked: true },
-    //   { new: true }
-    // );
-    if (x.length !== 0) {
-      return res.status(200).send({ message: 'Seats Booked', bookedSeats: x });
+    let checkIfAvialable = await SeatModel.find({ isBooked: { $in: 'false' } });
+    if (checkIfAvialable.length >= numOfSeats) {
+      let x = await BookingSeats(numOfSeats);
+      if (x.length !== 0) {
+        return res
+          .status(200)
+          .send({ message: 'Seats Booked', bookedSeats: x });
+      }
     }
-    return res.status(404).send('Seats Not found');
+
+    return res.status(404).send('Seats Not Avialable');
   } catch (er) {
     return res.status(404).send({ message: er.message });
   }
