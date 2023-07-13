@@ -17,7 +17,7 @@ This problem involves the reservation of seats in a train coach. The coach has a
        	a. MongoDb
 
   
-#**All Seats Available:**
+# **All Seats Available:**
 
 ![enter image description here](https://res.cloudinary.com/dc3akfh6t/image/upload/v1689250632/crhtmzdszmuddmp1grql.png)
 
