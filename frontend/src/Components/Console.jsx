@@ -27,7 +27,7 @@ const BookingConsole = () => {
       maxWidth: '100%',
     },
   });
-  const handleReserve = () => {
+  const handleReserve = (e) => {
     console.log(typeof num);
     if (num > 7 || num <= 0) {
       return toast({

@@ -10,6 +10,7 @@ const SeatsContextProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [bookedSeats, SetBookedSeats] = useState([]);
   const [isLoading, SetLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const getSeats = async () => {
     try {
       SetLoading(true);
@@ -20,6 +21,7 @@ const SeatsContextProvider = ({ children }) => {
       SetLoading(false);
       return setData(data);
     } catch (er) {
+      SetLoading(false);
       return console.log(er.message);
     }
   };
@@ -29,6 +31,7 @@ const SeatsContextProvider = ({ children }) => {
 
       return getSeats();
     } catch (er) {
+      SetLoading(false);
       return console.log(er.message);
     }
   };
@@ -40,7 +43,9 @@ const SeatsContextProvider = ({ children }) => {
       SetLoading(false);
       return getSeats();
     } catch (er) {
-      return console.log(er.message);
+      SetLoading(false);
+      setErrorMessage(er.response.data);
+      return console.log(er.message, er.response.data);
     }
   };
   return (
@@ -53,6 +58,7 @@ const SeatsContextProvider = ({ children }) => {
         patchNumOfSeats,
         bookedSeats,
         isLoading,
+        errorMessage,
       }}
     >
       {children}

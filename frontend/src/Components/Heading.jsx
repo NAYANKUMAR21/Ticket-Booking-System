@@ -4,8 +4,8 @@ const HeadingTitle = () => {
   return (
     <Box>
       <Stack>
-        <Heading as="h1" textAlign={'center'}>
-          Seat Reservation
+        <Heading as="h1" textAlign={'center'} textTransform={'uppercase'}>
+          Untop Train Seat Reservation
         </Heading>
       </Stack>
     </Box>

@@ -1,4 +1,12 @@
-import { Box, Flex, Text, Grid, GridItem, Stack } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Text,
+  Grid,
+  GridItem,
+  Stack,
+  useToast,
+} from '@chakra-ui/react';
 import Seats from './Components/Seats';
 import BookingConsole from './Components/Console';
 
@@ -7,18 +15,30 @@ import { useContext } from 'react';
 import { SeatsContext } from './Context/Seats.context';
 
 function App() {
-  const value = useContext(SeatsContext);
-  console.log(value);
+  const { data, errorMessage } = useContext(SeatsContext);
+  const toast = useToast({
+    position: 'top',
+
+    containerStyle: {
+      maxWidth: '100%',
+    },
+  });
+  if (errorMessage) {
+    toast({
+      render: () => (
+        <Box color="white" p={3} bg="blue.500">
+          {errorMessage}
+        </Box>
+      ),
+    });
+  }
   return (
     <>
       <HeadingTitle />
       <Box
-        // border={'1px solid black'}
         display={['block', 'block', 'block', 'flex']}
         justifyContent={'space-around'}
         w="100%"
-        m="auto"
-        h="100vh"
       >
         {' '}
         <Seats />

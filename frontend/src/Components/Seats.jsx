@@ -30,7 +30,12 @@ const Seats = () => {
           </Text>
         </Flex>
       ) : (
-        <Grid templateColumns="repeat(7, 1fr)" gap={'25px'} h="100vh">
+        <Grid
+          templateColumns="repeat(7, 1fr)"
+          gap={'25px'}
+          justifyContent={'center'}
+          alignItems={'center'}
+        >
           {data?.map(({ Seat_Number, isBooked, _id }, index) => {
             return (
               <GridItem
@@ -41,7 +46,7 @@ const Seats = () => {
                 }}
                 key={index}
                 w="100%"
-                h="60px"
+                h="50px"
                 bg={isBooked ? 'red.400' : 'blue.400'}
                 color="white"
                 textAlign={'center'}
