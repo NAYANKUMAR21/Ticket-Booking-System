@@ -5,7 +5,16 @@ const HeadingTitle = () => {
     <Box>
       <Stack>
         <Heading as="h1" textAlign={'center'} textTransform={'uppercase'}>
-          Untop Train Seat Reservation
+          Un-Stop Train Seat Reservation
+          <div
+            style={{
+              color: 'teal',
+              fontSize: '13px',
+              textTransform: 'lowercase',
+            }}
+          >
+            (Click on box to Un-Book the Seat)
+          </div>
         </Heading>
       </Stack>
     </Box>

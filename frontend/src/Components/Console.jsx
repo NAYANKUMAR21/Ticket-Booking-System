@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { GrPowerReset } from 'react-icons/gr';
 import { LuArmchair } from 'react-icons/lu';
 import {
   InputGroup,
@@ -20,18 +21,14 @@ const BookingConsole = () => {
     useContext(SeatsContext);
 
   const [num, setNum] = useState(0);
-  const toast = useToast({
-    position: 'top',
-    title: 'Container style is updated',
-    containerStyle: {
-      maxWidth: '100%',
-    },
-  });
+  const toast = useToast();
   const handleReserve = (e) => {
     console.log(typeof num);
     if (num > 7 || num <= 0) {
       return toast({
         title: 'Number should be between 1 and 7!',
+        position: 'top-center',
+        isClosable: true,
         status: 'warning',
       });
     }
@@ -122,7 +119,7 @@ const BookingConsole = () => {
           {' '}
           Ex:3
         </Text>
-        <Flex justifyContent={'space-between'} mt="10px">
+        <Flex justifyContent={'space-around'} mt="10px">
           <InputGroup>
             <InputLeftAddon children={<LuArmchair />} />
             <Input
@@ -137,22 +134,27 @@ const BookingConsole = () => {
           </InputGroup>
 
           <Button
+            w="50%"
+            colorScheme="red"
+            onClick={() => {
+              DefaultSetting();
+            }}
+          >
+            <GrPowerReset />
+            Reset All Seats
+          </Button>
+        </Flex>
+        <Box>
+          <Button
+            w="50%"
             isLoading={isLoading ? isLoading : false}
-            w="45%"
             colorScheme="blue"
             onClick={handleReserve}
+            color="white"
           >
             Reserve Seats
           </Button>
-        </Flex>
-        <Button
-          colorScheme="red"
-          onClick={() => {
-            DefaultSetting();
-          }}
-        >
-          Reset All Seats
-        </Button>
+        </Box>
       </Stack>
     </Box>
   );

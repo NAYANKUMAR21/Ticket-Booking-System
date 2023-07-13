@@ -16,20 +16,13 @@ import { SeatsContext } from './Context/Seats.context';
 
 function App() {
   const { data, errorMessage } = useContext(SeatsContext);
-  const toast = useToast({
-    position: 'top',
-
-    containerStyle: {
-      maxWidth: '100%',
-    },
-  });
+  const toast = useToast();
   if (errorMessage) {
     toast({
-      render: () => (
-        <Box color="white" p={3} bg="blue.500">
-          {errorMessage}
-        </Box>
-      ),
+      isClosable: true,
+      status: 'info',
+
+      title: errorMessage,
     });
   }
   return (

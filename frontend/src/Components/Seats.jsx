@@ -11,7 +11,7 @@ import {
 import { SeatsContext } from '../Context/Seats.context';
 
 const Seats = () => {
-  const { getSeats, data, isLoading } = useContext(SeatsContext);
+  const { getSeats, data, isLoading, UnBookSeat } = useContext(SeatsContext);
 
   useEffect(() => {
     getSeats();
@@ -53,9 +53,10 @@ const Seats = () => {
                 display={'flex'}
                 justifyContent={'center'}
                 alignItems={'center'}
+                onClick={() => UnBookSeat(_id, isBooked)}
               >
                 <Box>
-                  <Text>{Seat_Number}</Text>
+                  <Text>{isLoading ? '...' : Seat_Number}</Text>
                 </Box>
               </GridItem>
             );
