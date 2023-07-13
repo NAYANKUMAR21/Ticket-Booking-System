@@ -22,10 +22,10 @@ This problem involves the reservation of seats in a train coach. The coach has a
 ![enter image description here](http://res.cloudinary.com/dc3akfh6t/image/upload/v1689250727/vufxkzqbb9iuue38jcck.png)
 # [Website Link](https://frontend-bice-phi.vercel.app/)
 
-enter code here[Backend Github  Link](https://github.com/NAYANKUMAR21/UnStop-Backend)
-[Frontend Github  Link](https://github.com/NAYANKUMAR21/Ticket-Booking-System/tree/master/frontend)
-[Frontend Deployed Link](https://frontend-bice-phi.vercel.app/)
-[Backend Deployed Link (Cyclic)](https://amber-cheetah-hat.cyclic.app)
+1. [Backend Github  Link](https://github.com/NAYANKUMAR21/UnStop-Backend)
+2. [Frontend Github  Link](https://github.com/NAYANKUMAR21/Ticket-Booking-System/tree/master/frontend)
+3. [Frontend Deployed Link](https://frontend-bice-phi.vercel.app/)
+4. [Backend Deployed Link (Cyclic)](https://amber-cheetah-hat.cyclic.app)
 
 
 **Features :**
