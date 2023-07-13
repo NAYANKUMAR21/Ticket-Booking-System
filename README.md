@@ -6,18 +6,18 @@ This problem involves the reservation of seats in a train coach. The coach has a
 
 ![enter image description here](https://res.cloudinary.com/dc3akfh6t/image/upload/v1689250632/crhtmzdszmuddmp1grql.png)
 
-**Booking Seats At  the very Beginning According to Constraints :**
+# **Booking Seats At  the very Beginning According to Constraints :**
 
 ![enter image description here](https://res.cloudinary.com/dc3akfh6t/image/upload/v1689250822/pxyqpso2tqbiyg2uxa3n.png)
 
 
-**Showing Booked Seats [ 24, 25, 26 ] After Majority Seats have been booked:**
+# **Showing Booked Seats [ 24, 25, 26 ] After Majority Seats have been booked:**
 
 ![enter image description here](http://res.cloudinary.com/dc3akfh6t/image/upload/v1689250600/n9wrjzmvg1oyy9kdnfx1.png)
 
 
 
-**Un-Booking The seats Clicking on the Boxes :**
+# **Un-Booking The seats Clicking on the Boxes :**
 
 ![enter image description here](http://res.cloudinary.com/dc3akfh6t/image/upload/v1689250727/vufxkzqbb9iuue38jcck.png)
 # [Website Link](https://frontend-bice-phi.vercel.app/)
